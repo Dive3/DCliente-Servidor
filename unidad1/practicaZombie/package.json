@@ -1,0 +1,16 @@
+{
+  "name": "Zombie",
+  "version": "1.0.0",
+  "description": "Los zombies son hermosos.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Verónica Herrera",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "body-parser": "^1.18.3"
+  }
+}

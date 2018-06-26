@@ -1,0 +1,32 @@
+<% include header %>
+
+<div class="titulo">
+<h4>¿Te has comido a alguien ultimamente ó tienes información sobre víctimas potenciales?</h4>
+<h3>Ingresa su información</h3>
+</div>
+
+<form method="post" role="form">
+    <div class="form-grup">
+        <label for="title"> Titulo </label>
+        <input type="text" class= "form-control" id="title" name="title" placeholder="Escribe un titulo" required/>
+    
+        <label for="direccion">Dirección</label>
+        <textarea type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingresa su dirección" required/></textarea>
+    
+        <label for="telefono">Teléfono</label>
+        <textarea type="int" class="form-control" id="telefono" name="telefono" placeholder="Ingresa su teléfono" required/></textarea>
+    
+        <label for="instagram">Instagram</label>
+        <textarea type="text" class= "form-control" id="instagram" name="instagram" placeholder="Ingresa su instagram para sabrosear" required/></textarea>
+    </div>
+    
+    <div>
+    <label for="victim">¿Ya comiste a la víctima o es un cliente potencial?</label>
+    <textarea type="text" class= "form-control" id="victim" name="victim" placeholder="Ingresa un comentario" required/></textarea>
+</div>
+
+    <div class="form-grup">
+        <input type= "submit" class="btn btn-primary" value="Aceptar"/>
+    </div>
+</form>
+<%include footer%>

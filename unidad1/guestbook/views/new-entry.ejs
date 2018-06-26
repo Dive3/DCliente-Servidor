@@ -1,0 +1,17 @@
+<% include header %>
+<h2> Crea una nueva entrada </h2>
+<form method="post" role="form">
+    <div class="form-grup">
+        <label for="title"> Titulo </label>
+        <input type="text" class= "form-control" id="title" name="title" placeholder="Escribe un titulo" required/>
+    </div>
+    <div class="form-grup">
+        <label for="body">Mensaje</label>
+        <textarea type="form-control" class= "body" id="body" name="body" placeholder="Escribe un mensaje" rows="3" required/>
+        </textarea>
+    </div>
+    <div class="form-grup">
+        <input type= "submit" class="btn btn-primary" value="Aceptar"/>
+    </div>
+</form>
+<%include footer%>

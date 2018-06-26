@@ -1,0 +1,50 @@
+<DOCTYPE html>
+<html lang = "en">
+<head>
+    <title> Zombie Nest </title>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel = "stylesheet" href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class = "navbar navbar-default navbar-static-top" role ="navegation">
+    <div class = "container">
+        <div class="navbar-header">
+            <a class = "navbar-brand" href="/"> Zombie Nest </a>
+        </div>
+        <ul class ="nav navbar-nav navbar-right">
+            <% if (currentZombie) {%>
+                <li>
+                    <a href="/edit">
+                      Hola,<%= currentZombie.name() %>
+                    </a>
+                </li>
+                <li>
+                    <a href= "logout"> Salir </a>
+                </li>
+                <%}else{%>
+                <li>
+                    <a href ="/login"> Entrar </a>
+                </li>
+                <li>
+                    <a href= "/armas"> Armas </a>
+                </li>
+                <li>
+                    <a href="/signup"> Registrarse </a>
+                </li>
+                <% } %>
+        </ul>
+    </div>
+</div>
+<div class = "container">
+    <% errors.forEach(function(error) { %>
+        <div class= "alert alert-danger" role = "alert">
+            <%= error %>
+        </div>
+    <% }) %>
+    <% infos.forEach(function(info){ %>
+        <div class="aler alert-info" role ="alert">
+    <%= info %>
+        </div>
+   <% }) %>

@@ -1,0 +1,23 @@
+<%include header%>
+
+<% if(entries.length) {%>
+    <% entries.forEach((entry) => {%>
+        <div class= "panel panel-defautl">
+            <div class= "panel-heading">
+                <div class= "text-mited pull-rigth">
+                    <%= entry.created %>
+                 </div>
+                <%= entry.title %>
+             </div>
+             <div class = "panel-body">
+                <%= entry.direccion %>
+                <%= entry.telefono %>
+                <%= entry.instagram %>
+                <%= entry.victim %>
+            </div>
+    <% }) %>        
+        <% } else {%>
+            <h1>¡No hay ninguna víctima! Por favor, agrega una :( <br>
+            <a href = "/nueva-victima" class="btn btn-dark"> ¡Agregar cena! </a></h1>
+    <% } %>
+<%include footer%>

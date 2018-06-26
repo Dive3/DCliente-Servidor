@@ -1,0 +1,17 @@
+{
+  "name": "clima",
+  "version": "1.0.0",
+  "description": "Clima!!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Diana",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "forecastio": "1.0.2",
+    "zippity-do-dah": "0.0.3"
+  }
+}

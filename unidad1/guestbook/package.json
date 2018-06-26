@@ -1,0 +1,17 @@
+{
+  "name": "libro",
+  "version": "1.0.0",
+  "description": "Libro de visitas ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "DVHS",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  }
+}

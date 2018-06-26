@@ -1,0 +1,20 @@
+<% include header %>
+<% if(entries.length) {%>
+    <% entries.forEach((entry) => {%>
+        <div class= "panel panel-defautl">
+            <div class= "panel-heading">
+                <div class= "text-mited pull-rigth">
+                    <%= entry.created %>
+                 </div>
+                 <%= entry.title %>
+             </div>
+             <div class = "panel-body">
+                <%= entry.body %>
+            </div>
+            <p>¿Quieres realizar alguna?<a href = "/new-entry"> Agregar una! </a></p>
+        </div>
+    <% }) %>
+<% } else {%>
+    <p>No hay visitas todavía! <a href = "/new-entry"> Agregar una! </a></p>
+<% } %>
+<% include footer %>

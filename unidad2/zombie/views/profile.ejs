@@ -1,0 +1,14 @@
+<% include _header %>
+
+<% if((currentZombie) && (currentZombie.id===zombie.id)) { %>
+    <a href="/edit" class="pull-rigth"> Edita tu perfil </a>
+<% } %>
+
+<h1> <%= zombie.name() %></h1>
+<h2> Se registro el <%= zombie.createdAt %> </h2>
+
+<% if(zombie.bio) { %>
+        <p><%= zombie.bio %></p>
+<% } %>
+
+<% include _footer %>

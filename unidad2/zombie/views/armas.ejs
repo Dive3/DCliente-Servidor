@@ -1,0 +1,22 @@
+<% include _header %>
+
+<a href = "/agregarArma" class="btn btn-dark" > ¡Agregar arma! </a>
+
+<% armas.forEach((arma) => { %> 
+<div class = "panel panel-default">
+    <div class= "panel-heading">
+           <p> <%= arma.descripcion %> </p>
+    </div>
+
+           <div class= "panel-body"><p>Ésta arma tiene una fuerza de: <%= arma.fuerza %></p></div> 
+           <div class= "panel-body"><p>Ésta arma está en la categoría: <%= arma.categoria %></p></div> 
+           <div class="panel-body">
+           <% if(arma.municion === true) { %>
+                <p>Municion: Si </p> 
+            <% } %></div>
+           
+
+</div>
+<% }) %>
+
+<% include _footer %>
