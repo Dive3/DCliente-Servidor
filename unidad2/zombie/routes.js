@@ -93,6 +93,28 @@ router.post("/armas", (req, res, next)=>{
         return res.redirect("/armas");
     });
 });
+//login
+router.get("/login", (req, res) => {
+    res.render("login");
+});
+
+router.post("/login", passport.authenticate("login", {
+    successRedirect :"/",
+    failureRedirect : "/login",
+    failureFlash: true
+}));
+
+
+
+//autenticacion
+function esureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()){
+        next();
+    }else {
+        req.flash("info", "Necesitas iniciar sesion para poder er esta seccion");
+        res.redirect("/login");
+    }
+}
 
 
 module.exports = router;
