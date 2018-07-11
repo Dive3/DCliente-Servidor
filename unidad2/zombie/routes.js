@@ -3,15 +3,30 @@ var Zombie = require("./models/zombie");
 var Arma = require("./models/armas");
 
 var passport = require("passport");
+var acl = require("express-acl");
 
 var router = express.Router();
+
+acl.config({
+    baseUrl: '/',
+    defaultRole: 'zombie',
+    decodedObjectName: 'zombie',
+    roleSearchPath: 'zombie.role'
+});
 
 router.use((req, res, next) => {
     res.locals.currentZombie = req.zombie;
     res.locals.errors = req.flash("error");
     res.locals.infos = req.flash("info");
+    if (req.session.passport){
+        if(req.zombie){    
+        req.session.role = req.zombie.role
+        }
+    }
+    console.log(req.session);
     next();
 });
+;
 
 router.get("/", (req, res, next) =>{
     Zombie.find()
@@ -24,6 +39,7 @@ router.get("/", (req, res, next) =>{
     });
 });
 
+//ENTRAR
 router.get("/signup", (req, res) => {
     res.render("signup");
 });
@@ -31,6 +47,7 @@ router.get("/signup", (req, res) => {
 router.post("/signup", (req, res, next)=>{
     var username = req.body.username;
     var password = req.body.password;
+    var role = req.body.role;
 
     Zombie.findOne({username: username}, (err, zombie) => {
         if(err){
@@ -42,7 +59,8 @@ router.post("/signup", (req, res, next)=>{
         }
         var newZombie = new Zombie({
             username: username,
-            password: password
+            password: password,
+            role: role
         });
         newZombie.save(next);
         return res.redirect("/");
@@ -104,17 +122,40 @@ router.post("/login", passport.authenticate("login", {
     failureFlash: true
 }));
 
+//logout
+router.get("/logout", (req, res ) => {
+    req.logout();
+    res.redirect("/");
+});
 
+//edit
+router.get("/edit",ensureAuthenticated,(req,res) => {
+    res.render("edit");
+});
+
+router.post("/edit",ensureAuthenticated, (req, res, next) => {
+    req.zombie.displayName= req.body.displayName;
+    req.zombie.bio = req.body.bio;
+    req.zombie.save((err) =>{
+        if(err){
+            next(err);
+            return;
+        }
+        req.flash("info","Perfil actualizado!");
+        res.redirect("/edit");
+    });
+});
 
 //autenticacion
-function esureAuthenticated(req, res, next) {
+function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()){
         next();
     }else {
-        req.flash("info", "Necesitas iniciar sesion para poder er esta seccion");
+        req.flash("info", "Necesitas iniciar sesion para poder hacer esta seccion");
         res.redirect("/login");
     }
 }
+
 
 
 module.exports = router;

@@ -8,6 +8,7 @@ var zombieSchema = mongoose.Schema({
     password: { type: String, required: true},
     createdAt: {type: Date, default: Date.now},
     displayName: { type: String },
+    role: {type: String, required:true},
     bio: String
 });
 
@@ -35,14 +36,18 @@ zombieSchema.pre("save", function(done){
     });
 });
 
-    zombieSchema.methods.checkPassword = (guess, done) => {
-        bcrypt.compare(guess, this.password, (err, isMatch) => {
+    zombieSchema.methods.checkPassword = function(guess, done)  {
+        bcrypt.compare(guess, this.password, function(err, isMatch) {
             done(err, isMatch);
         });
     }
 
     zombieSchema.methods.name = function(){
         return this.displayName || this.username;
+
+    }
+    zombieSchema.methods.roles = function(){
+        return this.role;
 
     }
 

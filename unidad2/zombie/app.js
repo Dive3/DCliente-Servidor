@@ -32,10 +32,10 @@ app.use(session ({
 
 app.use(flash());
 
-app.use(passport.inicialize({
+app.use(passport.initialize ({
     userProperty: "zombie"
 }));
-app.use(passport.session);
+app.use(passport.session());
 
 app.use(routes);
 

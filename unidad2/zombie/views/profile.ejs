@@ -1,14 +1,14 @@
 <% include _header %>
 
-<% if((currentZombie) && (currentZombie.id===zombie.id)) { %>
-    <a href="/edit" class="pull-rigth"> Edita tu perfil </a>
-<% } %>
-
 <h1> <%= zombie.name() %></h1>
-<h2> Se registro el <%= zombie.createdAt %> </h2>
+<h4> Se registro el <%= zombie.createdAt %> </h4>
 
 <% if(zombie.bio) { %>
-        <p><%= zombie.bio %></p>
+    <h3> <p><%= zombie.bio %></p> </h3>
+        <% } %>
+
+<% if((currentZombie) && (currentZombie.id===zombie.id)) { %>
+        <a href="/edit" class="pull-rigth"> Edita tu perfil </a>
 <% } %>
 
 <% include _footer %>

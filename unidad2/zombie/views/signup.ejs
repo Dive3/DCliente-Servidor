@@ -1,7 +1,8 @@
 <% include _header %>
 
-<h1> Registro </h1>
+<h1> Registro de nuevo usuario</h1>
 
+<h2> Ingresa tu información: </h2>
 <form action="/signup" method="post">
     <div class="form-group">
         <input name = "username" type ="text" class="form-control"
@@ -12,8 +13,15 @@
         placeholder="Contraseña" required/>
     </div>
     
+    <select class="form-control" name="role" type="text">
+        <option>zombie-king</option>
+        <option>zombie-queen</option>
+        <option>zombie-boss</option>
+        <option>zombie</option>
+    </select>
+
     <div>
-    <input type="submit" value="Registrarse" class="btn btn-primary btn-block"/>
+        <input type="submit" value="Registrarse" class="btn btn-primary btn-block"/>
     </div>
 </form>
 

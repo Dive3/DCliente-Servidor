@@ -17,18 +17,23 @@
             <% if (currentZombie) {%>
                 <li>
                     <a href="/edit">
-                      Hola,<%= currentZombie.name() %>
+                      Hola, <%= currentZombie.name() %>
                     </a>
+                </li>
+                <li>
+                <a href= "/armas"> Armas </a>
                 </li>
                 <li>
                     <a href= "logout"> Salir </a>
                 </li>
+                <li>
+                <a href="/edit">
+                  <%= currentZombie.roles() %>
+                </a>
+            </li>
                 <%}else{%>
                 <li>
                     <a href ="/login"> Entrar </a>
-                </li>
-                <li>
-                    <a href= "/armas"> Armas </a>
                 </li>
                 <li>
                     <a href="/signup"> Registrarse </a>
