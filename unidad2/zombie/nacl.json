@@ -16,7 +16,12 @@
     {
         "resource":"/edit",
         "methods": ["GET", "POST"],
-        "action": "allow"
+        "action": "allow"  
+    },
+    {
+        "resource": "/signup",
+        "methods" : ["GET", "POST"],
+        "action" : "allow"
     }]
 },
 {
@@ -30,13 +35,18 @@
 {   "group": "zombie-boss",
     "permissions": [{
         "resource":"/login",
-        "methods":["GET"],
+        "methods":["GET", "POST"],
         "action": "allow"
     },
     {   
         "resource":"/armas",
         "methods":["GET", "POST"],
         "action": "allow"
+    },
+    {
+        "resource": "/signup",
+        "methods" : ["GET", "POST"],
+        "action" : "allow"
     }]
 
 }

@@ -21,12 +21,14 @@ router.use((req, res, next) => {
     if (req.session.passport){
         if(req.zombie){    
         req.session.role = req.zombie.role
+        }else{
+            req.session.role = "zombie";
         }
     }
     console.log(req.session);
     next();
 });
-;
+router.use(acl.authorize);
 
 router.get("/", (req, res, next) =>{
     Zombie.find()
